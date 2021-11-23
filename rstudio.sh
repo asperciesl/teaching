@@ -8,9 +8,12 @@ chmod 600 /root/.ssh/authorized_keys
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install r-base -y
+export R_VERSION=4.0.5
 sudo apt-get install gdebi-core -y
+#sudo apt-get install r-base -y
 sudo apt-get install curl -y
+curl https://cdn.rstudio.com/r/ubuntu-2004/pkgs/r-4.0.5_1_amd64.deb > /root/r-4.0.5_1_amd64.deb
+sudo gdebi --n /root/r-4.0.5_1_amd64.deb
 sudo curl https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.1-372-amd64.deb > /root/rstudio-server-2021.09.1-372-amd64.deb
 sudo gdebi --n /root/rstudio-server-2021.09.1-372-amd64.deb
 
