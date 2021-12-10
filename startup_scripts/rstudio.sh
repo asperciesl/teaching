@@ -10,10 +10,18 @@ sudo apt-get update
 sudo apt-get upgrade
 export R_VERSION=4.0.5
 sudo apt-get install gdebi-core -y
-#sudo apt-get install r-base -y
 sudo apt-get install curl -y
-curl https://cdn.rstudio.com/r/ubuntu-2004/pkgs/r-4.0.5_1_amd64.deb > /root/r-4.0.5_1_amd64.deb
-sudo gdebi --n /root/r-4.0.5_1_amd64.deb
+sudo apt-get install libcurl4-openssl-dev -y
+sudo apt-get install libxml2-dev -y
+sudo apt-get install libssl-dev -y
+sudo apt-get install dirmngr gnupg apt-transport-https ca-certificates software-properties-common -y
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+sudo apt install r-base -y
+
+#curl https://cdn.rstudio.com/r/ubuntu-2004/pkgs/r-4.0.5_1_amd64.deb > /root/r-4.0.5_1_amd64.deb
+#sudo gdebi --n /root/r-4.0.5_1_amd64.deb
+
 sudo curl https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.1-372-amd64.deb > /root/rstudio-server-2021.09.1-372-amd64.deb
 sudo gdebi --n /root/rstudio-server-2021.09.1-372-amd64.deb
 
@@ -29,6 +37,8 @@ sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'student7') stu
 sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'student8') student8
 sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'student9') student9
 sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'student10') student10
+sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'student11') student11
+sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'student12') student12
 
 sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'teacher1') teacher1
 sudo useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' 'teacher2') teacher2
