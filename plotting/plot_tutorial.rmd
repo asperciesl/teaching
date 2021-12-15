@@ -23,6 +23,7 @@ if("ggsignif" %in% rownames(installed.packages()) == FALSE)
   install.packages("ggsignif")
 }
 
+library(svglite)
 library(tidyverse)
 library(ggsignif)
 ```
