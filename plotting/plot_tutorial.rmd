@@ -123,6 +123,18 @@ print(p)
 ```
 
 ```{r}
+p <- ggplot(data , aes(x = Protein, y = Expression, fill = Vector))
+p <-p + geom_bar(width = 0.7, position = position_dodge(width = 0.8) ,
+                 stat = "identity")
+
+p <- p + scale_fill_grey(start = 0.2, end = 0.8)
+p <- p + scale_y_continuous(limits = c(0, 5), expand = c(0, 0))
+
+source("theme.R")
+print(p)
+```
+
+```{r}
 p <- ggplot(data, aes(x=Protein, y=Expression, fill = Vector)) + geom_boxplot(outlier.colour="red", outlier.shape=8,
                 outlier.size=4)
 print(p)
@@ -153,7 +165,7 @@ sig_length <- 0.125
 data_significance[1, ]<- c(1-sig_length, 1+sig_length, 1.5, '****')
 data_significance[2, ]<- c(2-sig_length, 2+sig_length, 2, ' **** ')
 data_significance[3, ]<- c(3-sig_length, 3+sig_length, 0.75, '  ****  ')
-data_significance[4, ]<- c(4-sig_length, 4+sig_length, 1.35, 'ns.')
+data_significance[4, ]<- c(4-sig_length, 4+sig_length, 1.35, 'ns')
 
 data_significance$signif_x <- as.numeric(data_significance$signif_x)
 data_significance$signif_xend <- as.numeric(data_significance$signif_xend)
